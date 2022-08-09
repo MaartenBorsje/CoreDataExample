@@ -63,10 +63,7 @@
 			children = (
 				5663A13028A2D89200BE90D0 /* CoreDataExampleApp.swift */,
 				5663A13228A2D89200BE90D0 /* ContentView.swift */,
-				5663A14528A2DC7600BE90D0 /* DepartmentDashboardView.swift */,
-				5663A14728A2DCD700BE90D0 /* EmployeeDashboardView.swift */,
-				5663A14328A2DC0700BE90D0 /* CompanyDashboardView.swift */,
-				5663A13E28A2D8D300BE90D0 /* CoreDataRelationshipsBootcamp.swift */,
+				5663A14928A2DE4A00BE90D0 /* Views */,
 				5663A14028A2D8DB00BE90D0 /* CoreDataContainer.xcdatamodeld */,
 				5663A13428A2D89300BE90D0 /* Assets.xcassets */,
 				5663A13628A2D89300BE90D0 /* Preview Content */,
@@ -80,6 +77,17 @@
 				5663A13728A2D89300BE90D0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5663A14928A2DE4A00BE90D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5663A14528A2DC7600BE90D0 /* DepartmentDashboardView.swift */,
+				5663A14728A2DCD700BE90D0 /* EmployeeDashboardView.swift */,
+				5663A14328A2DC0700BE90D0 /* CompanyDashboardView.swift */,
+				5663A13E28A2D8D300BE90D0 /* CoreDataRelationshipsBootcamp.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
