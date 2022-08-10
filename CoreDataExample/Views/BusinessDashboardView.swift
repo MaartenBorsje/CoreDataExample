@@ -1,5 +1,5 @@
 //
-//  EmployeeDashboardView.swift
+//  CompanyDashboard.swift
 //  CoreDataExample
 //
 //  Created by Maarten Borsje on 09/08/2022.
@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-struct EmployeeDashboardView: View {
+struct BusinessDashboardView: View {
     
     @StateObject var vm = CoreDataViewModel()
     
-    @State private var employeeName = ""
-    @State private var age = Int16(1)
-//    @State private var dateJoined = Date()
+    @State private var companyName = ""
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    TextField("Employee Name", text: $employeeName)
-                    TextField("Employee Age", value: $age, formatter: NumberFormatter())
+                    TextField("Company Name", text: $companyName)
                     Button(action: {
-                        vm.addEmployee(employeeName: employeeName, age: Int16(age))
+                        vm.addBusiness(companyName: companyName)
                     }, label: {
-                        Text("Perform Action")
+                        Text("Add Business")
                             .foregroundColor(.white)
                             .frame(height: 55)
                             .frame(maxWidth: .infinity)
@@ -32,22 +29,21 @@ struct EmployeeDashboardView: View {
                     })
                     ScrollView(.horizontal, showsIndicators: true, content: {
                         HStack(alignment: .top) {
-                            ForEach(vm.employees) { employee in
-                                EmployeeViewComponent(entity: employee)
+                            ForEach(vm.businesses) { business in
+                                BusinessViewComponent(entity: business)
                             }
                         }
                     })
                 }
                 .padding()
             }
-            .navigationTitle("Employee")
+            .navigationTitle("Company")
         }
-
     }
 }
 
-struct EmployeeDashboardView_Previews: PreviewProvider {
+struct CompanyDashboard_Previews: PreviewProvider {
     static var previews: some View {
-        EmployeeDashboardView()
+        BusinessDashboardView()
     }
 }

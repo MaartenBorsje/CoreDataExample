@@ -14,7 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }
-            CompanyDashboardView()
+            BusinessDashboardView()
                 .tabItem {
                     Image(systemName: "building.2")
                 }
