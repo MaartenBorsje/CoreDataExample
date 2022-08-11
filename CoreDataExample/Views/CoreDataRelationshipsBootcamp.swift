@@ -19,7 +19,7 @@ struct CoreDataRelationshipsBootcamp: View {
             ScrollView {
                 VStack(spacing: 20) {
                     Button(action: {
-                        vm.deleteDepartment()
+//                        vm.deleteDepartment()
 //                        vm.getEmployees(forBusiness: vm.businesses[0])
                     }, label: {
                         Text("Perform Action")

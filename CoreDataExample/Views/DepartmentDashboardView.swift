@@ -15,27 +15,30 @@ struct DepartmentDashboardView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    TextField("Department Name", text: $departmentName)
-                    Button(action: {
-                        vm.addDepartment(departmentName: departmentName)
-                    }, label: {
-                        Text("Add Department")
-                            .foregroundColor(.white)
-                            .frame(height: 55)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue.cornerRadius(10))
-                    })
-                    ScrollView(.horizontal, showsIndicators: true, content: {
-                        HStack(alignment: .top) {
-                            ForEach(vm.departments) { department in
-                                DepartmentViewComponent(entity: department)
-                            }
+            List {
+                Section {
+                    VStack(spacing: 20) {
+                        TextField("Department Name", text: $departmentName)
+                        Button(action: {
+                            vm.addDepartment(departmentName: departmentName)
+                        }, label: {
+                            Text("Add Department")
+                                .foregroundColor(.white)
+                                .frame(height: 55)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue.cornerRadius(10))
+                        })
+                    }
+                        Section {
+//                            HStack(alignment: .top) {
+                                ForEach(vm.departments) { department in
+                                    DepartmentViewComponent(entity: department)
+                                }
+//                            }
+                            .onDelete(perform: vm.deleteDepartment)
                         }
-                    })
-                }
-                .padding()
+                    }
+                    .padding()
             }
             .navigationTitle("Department")
         }

@@ -15,29 +15,34 @@ struct BusinessDashboardView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    TextField("Company Name", text: $companyName)
-                    Button(action: {
-                        vm.addBusiness(companyName: companyName)
-                    }, label: {
-                        Text("Add Business")
-                            .foregroundColor(.white)
-                            .frame(height: 55)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue.cornerRadius(10))
-                    })
-                    ScrollView(.horizontal, showsIndicators: true, content: {
-                        HStack(alignment: .top) {
-                            ForEach(vm.businesses) { business in
+            List {
+                Section {
+                    VStack(spacing: 20) {
+                        TextField("Company Name", text: $companyName)
+                        Button(action: {
+                            vm.addBusiness(companyName: companyName)
+                        }, label: {
+                            Text("Add Business")
+                                .foregroundColor(.white)
+                                .frame(height: 55)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue.cornerRadius(10))
+                        })
+                    }
+                    Section {
+                        ForEach(vm.businesses) { business in
+                            NavigationLink {
+                                
+                            } label: {
                                 BusinessViewComponent(entity: business)
                             }
                         }
-                    })
+                        .onDelete(perform: vm.deleteBusiness)
+                    }
                 }
                 .padding()
             }
-            .navigationTitle("Company")
+            .navigationTitle("Business")
         }
     }
 }

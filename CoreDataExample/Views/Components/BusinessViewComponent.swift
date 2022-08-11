@@ -31,7 +31,7 @@ struct BusinessViewComponent: View {
             }
         })
         .padding()
-        .frame(maxWidth: 300, alignment: .leading)
+//        .frame(maxWidth: 300, alignment: .leading)
         .background(Color.gray.opacity(0.5))
         .cornerRadius(10)
         .shadow(radius: 10)

@@ -72,6 +72,7 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
+    // TODO: add variable
     func updateBusiness() {
         
         let existingBusiness = businesses[2]
@@ -121,12 +122,48 @@ class CoreDataViewModel: ObservableObject {
         save()
     }
     
-    func deleteDepartment() {
+    // TODO: add variable
+    func addEmployeeToDepartment() {
+//        let newEmployee = EmployeeEntity(context: manager.context)
+//        newEmployee.department = departments[0]
+    }
+    
+    // TODO: add variable
+    func addEmployeeToBusiness() {
+//        let newEmployee = EmployeeEntity(context: manager.context)
+//        newEmployee.business = departments[0]
+    }
+    
+    func deleteBusiness(at offsets: IndexSet) {
+        for offset in offsets {
+            let business = businesses[offset]
+            
+            manager.context.delete(business)
+        }
         
-        let department = departments[1]
-        manager.context.delete(department)
+//        try? manager.context.save()
         save()
+    }
+    
+    func deleteDepartment(at offsets: IndexSet) {
+        for offset in offsets {
+            let department = departments[offset]
+            
+            manager.context.delete(department)
+        }
         
+//        try? manager.context.save()
+        save()
+    }
+    
+    func deleteEmployee(at offsets: IndexSet) {
+        for offset in offsets {
+            let employee = employees[offset]
+            
+            manager.context.delete(employee)
+            
+            save()
+        }
     }
     
     func save() {
@@ -134,7 +171,7 @@ class CoreDataViewModel: ObservableObject {
         departments.removeAll()
         employees.removeAll()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.manager.save()
             self.getBusinesses()
             self.getDepartments()
