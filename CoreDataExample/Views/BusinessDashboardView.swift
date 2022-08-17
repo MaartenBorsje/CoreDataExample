@@ -29,17 +29,18 @@ struct BusinessDashboardView: View {
                                 .background(Color.blue.cornerRadius(10))
                         })
                     }
-                    Section {
-                        ForEach(vm.businesses) { business in
-                            NavigationLink {
-                                
-                            } label: {
-                                BusinessViewComponent(entity: business)
-                            }
-                        }
-                        .onDelete(perform: vm.deleteBusiness)
-                    }
                 }
+                Section {
+                    ForEach(vm.businesses) { business in
+                        NavigationLink {
+                            
+                        } label: {
+                            BusinessViewComponent(entity: business)
+                        }
+                    }
+                    .onDelete(perform: vm.deleteBusiness)
+                }
+                
                 .padding()
             }
             .navigationTitle("Business")

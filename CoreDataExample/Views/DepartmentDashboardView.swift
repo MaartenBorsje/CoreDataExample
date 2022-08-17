@@ -29,16 +29,16 @@ struct DepartmentDashboardView: View {
                                 .background(Color.blue.cornerRadius(10))
                         })
                     }
-                        Section {
-//                            HStack(alignment: .top) {
-                                ForEach(vm.departments) { department in
-                                    DepartmentViewComponent(entity: department)
-                                }
-//                            }
-                            .onDelete(perform: vm.deleteDepartment)
-                        }
+                }
+                Section {
+                    //                            HStack(alignment: .top) {
+                    ForEach(vm.departments) { department in
+                        DepartmentViewComponent(entity: department)
                     }
-                    .padding()
+                    //                            }
+                    .onDelete(perform: vm.deleteDepartment)
+                }
+                .padding()
             }
             .navigationTitle("Department")
         }

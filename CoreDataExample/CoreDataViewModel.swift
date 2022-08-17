@@ -39,6 +39,11 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
+    func getBusinessName(index: Int) {
+        let business = BusinessEntity(context: manager.context)
+        business.addToEmployees(employees[index])
+    }
+    
     func getDepartments() {
         let request = NSFetchRequest<DepartmentEntity>(entityName: "DepartmentEntity")
         
@@ -122,14 +127,16 @@ class CoreDataViewModel: ObservableObject {
         save()
     }
     
-    // TODO: add variable
-    func addEmployeeToDepartment() {
-//        let newEmployee = EmployeeEntity(context: manager.context)
-//        newEmployee.department = departments[0]
+    // TODO: Update screen after running func
+    func addEmployeeToBusiness(businessName: Int, employeeName: Int) {
+        let currentBusiness = businesses[businessName]
+        
+        currentBusiness.addToEmployees(employees[employeeName])
+        save()
     }
     
     // TODO: add variable
-    func addEmployeeToBusiness() {
+    func addEmployeeToDepartment() {
 //        let newEmployee = EmployeeEntity(context: manager.context)
 //        newEmployee.business = departments[0]
     }
